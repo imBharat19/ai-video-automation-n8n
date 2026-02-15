@@ -25,19 +25,15 @@
 
 ---
 
-## 🧠 Architecture
+## 🛠 Requirements
+Before you begin, ensure you have the following installed and configured:
 
+Docker (for running n8n)
 
+n8n instance
 
-```mermaid
-graph LR
-    A[Google Drive] -->|Watch Folder| B(Download File)
-    B --> C{AI SEO Generator}
-    C -->|Generate Metadata| D[Code Node]
-    B -->|Binary Data| D
-    D -->|Merge Binary + SEO| E[YouTube Upload]
-    E --> F((Live Video!))
-    
-    style A fill:#4285F4,stroke:#fff,stroke-width:2px,color:#fff
-    style E fill:#FF0000,stroke:#fff,stroke-width:2px,color:#fff
-    style C fill:#412991,stroke:#fff,stroke-width:2px,color:#fff
+Google Drive API credentials
+
+YouTube Data API v3 credentials
+
+LLM API Key (OpenAI, Gemini, or Ollama for local processing)
