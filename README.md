@@ -1,132 +1,43 @@
-# ai-video-automation-n8n
+<div align="center">
+  <h1>🤖 AI Video Automation with n8n</h1>
+  <p><b>A fully automated, low-code pipeline: Google Drive → AI SEO → YouTube Upload</b></p>
 
-🤖 AI Video Automation with n8n
+  ![n8n](https://img.shields.io/badge/n8n-FF6D5A?style=for-the-badge&logo=n8n&logoColor=white)
+  ![Docker](https://img.shields.io/badge/Docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+  ![Google Drive](https://img.shields.io/badge/Google%20Drive-4285F4?style=for-the-badge&logo=googledrive&logoColor=white)
+  ![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)
+  ![AI Powered](https://img.shields.io/badge/AI-OpenAI%20%7C%20Gemini-412991?style=for-the-badge)
+</div>
 
-Fully automated AI-powered video pipeline:
+---
 
-Google Drive → AI SEO → YouTube Upload
+> **Supports ANY content category:** Motivation, Quotes, Lifestyle, AI, Education, Wealth, Health, and Trending Reels.
 
-Supports ANY content category:
-Motivation, Quotes, Lifestyle, AI, Education, Wealth, Health, Trending Reels.
+## 🚀 Features
 
-🚀 Features
+* **🧠 Auto-Detect Video Topic:** Understands context before generating metadata.
+* **🔥 Viral SEO Title Generation:** Optimized hooks for maximum click-through rates.
+* **📝 Smart Descriptions:** 5-line, highly optimized video descriptions.
+* **🔑 Keyword & Hashtag Engine:** Generates 50 tags + 125 hashtags (100 standard + 25 AI-tailored).
+* **⚙️ Binary Video Handling:** Efficiently processes large video files.
+* **📺 Direct YouTube Upload:** No manual intervention required.
+* **🛠️ Fully No-Code/Low-Code:** Easy to maintain and customize.
 
-Auto detect video topic
+---
 
-Viral SEO title generation
+## 🧠 Architecture
 
-5-line optimized description
 
-50 keywords
 
-125 hashtags (100 + 25 AI)
-
-Binary video handling
-
-Direct YouTube upload
-
-Fully no-code/low-code
-
-🧠 Architecture
-Google Drive
-   ↓
-Watch Folder
-   ↓
-Download File
-   ↓
-AI SEO Generator
-   ↓
-Code Node (Merge Binary + SEO)
-   ↓
-YouTube Upload
-🛠 Requirements
-
-Docker
-
-n8n
-
-Google Drive API
-
-YouTube Data API
-
-OpenAI / Gemini / Ollama
-
-🐳 Run n8n
-docker run -it --rm \
--p 5678:5678 \
--v ~/.n8n:/home/node/.n8n \
-n8nio/n8n
-⚙ Setup
-
-Import workflow from workflows/
-
-Add credentials inside n8n UI
-
-Configure Drive folder
-
-Paste AI prompt
-
-Run workflow
-
-🔐 Security
-
-No credentials stored in repo
-
-Uses environment variables
-
-.env ignored
-
-OAuth handled inside n8n
-
-Binary data kept local
-
-NEVER commit:
-
-API keys
-
-OAuth tokens
-
-Personal emails
-
-Drive IDs
-
-📁 Folder Guide
-Folder	Purpose
-workflows	n8n automation
-prompts	AI SEO prompt
-screenshots	UI reference
-env	env examples
-docs	diagrams
-🚧 Roadmap
-
-Instagram upload
-
-TikTok upload
-
-Auto captions
-
-Thumbnail generation
-
-Language detection
-
-Scheduler
-
-Analytics feedback loop
-
-⚠ Disclaimer
-
-Educational project only.
-Respect platform policies.
-
-🔐 EXTRA SECURITY (Highly Recommended)
-
-Inside n8n:
-
-Settings → Security
-
-Enable:
-
-✅ Basic Auth
-✅ HTTPS (if public)
-✅ Disable executions list
-✅ Strong admin password
+```mermaid
+graph LR
+    A[Google Drive] -->|Watch Folder| B(Download File)
+    B --> C{AI SEO Generator}
+    C -->|Generate Metadata| D[Code Node]
+    B -->|Binary Data| D
+    D -->|Merge Binary + SEO| E[YouTube Upload]
+    E --> F((Live Video!))
+    
+    style A fill:#4285F4,stroke:#fff,stroke-width:2px,color:#fff
+    style E fill:#FF0000,stroke:#fff,stroke-width:2px,color:#fff
+    style C fill:#412991,stroke:#fff,stroke-width:2px,color:#fff
