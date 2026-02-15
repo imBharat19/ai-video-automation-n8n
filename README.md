@@ -13,27 +13,200 @@
 
 > **Supports ANY content category:** Motivation, Quotes, Lifestyle, AI, Education, Wealth, Health, and Trending Reels.
 
-## 🚀 Features
+## 🤖 Overview
 
-* **🧠 Auto-Detect Video Topic:** Understands context before generating metadata.
-* **🔥 Viral SEO Title Generation:** Optimized hooks for maximum click-through rates.
-* **📝 Smart Descriptions:** 5-line, highly optimized video descriptions.
-* **🔑 Keyword & Hashtag Engine:** Generates 50 tags + 125 hashtags (100 standard + 25 AI-tailored).
-* **⚙️ Binary Video Handling:** Efficiently processes large video files.
-* **📺 Direct YouTube Upload:** No manual intervention required.
-* **🛠️ Fully No-Code/Low-Code:** Easy to maintain and customize.
+This project is a fully automated AI-powered video publishing pipeline built using **n8n + AI models**.
+
+Drop videos into Google Drive — everything else happens automatically:
+
+- Detect topic  
+- Generate viral SEO title  
+- Create optimized description  
+- Generate keywords  
+- Generate 125 hashtags  
+- Upload directly to YouTube  
+
+Supports ANY niche:
+
+Motivation • Quotes • Lifestyle • AI • Education • Wealth • Health • Trending Reels • Shorts
 
 ---
 
-## 🛠 Requirements
-Before you begin, ensure you have the following installed and configured:
+## ✨ Features
 
-Docker (for running n8n)
+- Auto video detection (Google Drive)  
+- AI topic understanding  
+- Viral SEO titles with emojis  
+- 5-line optimized descriptions  
+- 50 trending keywords  
+- 125 hashtags (100 viral + 25 AI)  
+- Binary video handling  
+- Automatic YouTube upload  
+- Secure credential handling  
 
-n8n instance
+---
 
-Google Drive API credentials
+## 🏗 Architecture
 
-YouTube Data API v3 credentials
+Google Drive
+    ↓
+Watch Folder (n8n)
+    ↓
+Download Video
+    ↓
+AI SEO Generator
+    ↓
+Code Node (Merge JSON + Binary)
+    ↓
+YouTube Upload
 
-LLM API Key (OpenAI, Gemini, or Ollama for local processing)
+---
+
+
+---
+
+## 🖥 Tech Stack
+
+- n8n  
+- Google Drive API  
+- YouTube Data API  
+- Gemini / OpenAI / Ollama  
+- Docker  
+- JavaScript (Code Node)  
+
+---
+
+## 📂 Project Structure
+
+ai-video-automation-n8n/
+│
+├── workflows/
+│ └── youtube-ai-automation.json
+│
+├── prompts/
+│ └── seo_prompt.txt
+│
+├── env/
+│ └── .env.example
+│
+├── screenshots/
+│ ├── workflow.png
+│ ├── code-node.png
+│ └── youtube-upload.png
+│
+└── README.md
+
+
+---
+
+## 🐳 Run n8n (Docker)
+
+```bash
+docker run -it --rm \
+-p 5678:5678 \
+-v ~/.n8n:/home/node/.n8n \
+n8nio/n8n
+```
+
+Open browser:
+http://localhost:5678
+
+⚙ Setup Guide
+1. Import Workflow
+
+n8n → Import → workflows/youtube-ai-automation.json
+
+2. Configure Credentials
+
+Create credentials inside n8n:
+
+Google Drive OAuth
+
+YouTube OAuth
+
+AI Provider API Key
+
+Never hardcode credentials.
+
+3. Environment Variables
+
+Copy:
+
+.env.example → .env
+
+Fill your own keys.
+
+4. Update AI Prompt
+
+Edit:
+
+prompts/seo_prompt.txt
+5. Run Workflow
+
+Drop any video into your Drive folder.
+
+Automation begins instantly.
+
+🔐 Security
+
+No credentials stored in repo
+
+.env ignored
+
+OAuth handled by n8n
+
+Binary files stored locally
+
+Never commit:
+
+API Keys
+
+OAuth Tokens
+
+Personal Emails
+
+Drive IDs
+
+🚧 Roadmap
+Phase 2
+
+Instagram upload
+
+TikTok upload
+
+Auto captions
+
+Phase 3
+
+AI thumbnails
+
+Engagement analytics
+
+A/B title testing
+
+Phase 4
+
+Multi-account support
+
+Feedback learning loop
+
+Vector memory
+
+⚠ Disclaimer
+
+Educational automation project only.
+Follow YouTube platform policies.
+
+⭐ Support
+
+If this helped:
+
+Star ⭐
+Fork 🍴
+Build your own AI content factory 🤖
+
+👨‍💻 Author
+
+Built by Bharat
+
+SQL Server DBA → Cloud → AI Automation Engineer
